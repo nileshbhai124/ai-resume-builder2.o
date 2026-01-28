@@ -138,19 +138,29 @@ function generateResume() {
         certifications: document.getElementById('certifications')?.value || ''
     };
     
-    // Generate resume preview
-    const resumeHTML = generateResumeHTML(formData);
+    // Validate required fields
+    if (!formData.fullName || !formData.email || !formData.phone || !formData.degree || !formData.institution || !formData.technicalSkills) {
+        alert('⚠️ Please fill in all required fields (marked with *)');
+        return;
+    }
     
-    // Open in new window
-    const newWindow = window.open('', '_blank');
-    newWindow.document.write(resumeHTML);
-    newWindow.document.close();
+    // Save resume data to localStorage
+    localStorage.setItem('resumeData', JSON.stringify(formData));
     
-    alert('✅ Resume generated successfully! Check the new window.');
+    // Redirect to preview page
+    window.location.href = '/resume-preview.html';
 }
 
 function downloadResume() {
-    alert('📄 PDF download feature coming soon! For now, you can print the generated resume as PDF.');
+    // Check if resume data exists
+    const savedData = localStorage.getItem('resumeData');
+    if (!savedData) {
+        alert('⚠️ Please generate your resume first by clicking "Generate Resume" button.');
+        return;
+    }
+    
+    // Redirect to preview page where user can download
+    window.location.href = '/resume-preview.html';
 }
 
 // Resume Template Carousel
@@ -389,8 +399,44 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize color selector
     initColorSelector();
     
+    // Load saved resume data if exists
+    loadSavedResumeData();
+    
     console.log('App initialized - Landing page should be visible');
 });
+
+// Load saved resume data into form
+function loadSavedResumeData() {
+    const savedData = localStorage.getItem('resumeData');
+    if (savedData) {
+        try {
+            const data = JSON.parse(savedData);
+            
+            // Populate form fields
+            if (document.getElementById('fullName')) document.getElementById('fullName').value = data.fullName || '';
+            if (document.getElementById('email')) document.getElementById('email').value = data.email || '';
+            if (document.getElementById('phone')) document.getElementById('phone').value = data.phone || '';
+            if (document.getElementById('location')) document.getElementById('location').value = data.location || '';
+            if (document.getElementById('linkedin')) document.getElementById('linkedin').value = data.linkedin || '';
+            if (document.getElementById('github')) document.getElementById('github').value = data.github || '';
+            if (document.getElementById('objective')) document.getElementById('objective').value = data.objective || '';
+            if (document.getElementById('degree')) document.getElementById('degree').value = data.degree || '';
+            if (document.getElementById('institution')) document.getElementById('institution').value = data.institution || '';
+            if (document.getElementById('graduationYear')) document.getElementById('graduationYear').value = data.graduationYear || '';
+            if (document.getElementById('gpa')) document.getElementById('gpa').value = data.gpa || '';
+            if (document.getElementById('technicalSkills')) document.getElementById('technicalSkills').value = data.technicalSkills || '';
+            if (document.getElementById('softSkills')) document.getElementById('softSkills').value = data.softSkills || '';
+            if (document.getElementById('tools')) document.getElementById('tools').value = data.tools || '';
+            if (document.getElementById('projects')) document.getElementById('projects').value = data.projects || '';
+            if (document.getElementById('experience')) document.getElementById('experience').value = data.experience || '';
+            if (document.getElementById('certifications')) document.getElementById('certifications').value = data.certifications || '';
+            
+            console.log('✅ Saved resume data loaded into form');
+        } catch (error) {
+            console.error('Error loading saved resume data:', error);
+        }
+    }
+}
 
 // Color Selector for Resume
 let selectedResumeColor = 'blue';

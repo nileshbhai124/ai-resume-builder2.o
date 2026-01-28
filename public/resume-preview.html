@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Preview - AI Resume Builder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/resume-preview.css?v=1.0">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="preview-nav">
+        <div class="nav-left">
+            <button onclick="goBackToDashboard()" class="nav-btn back-btn">
+                <i class="fas fa-arrow-left"></i> Edit Resume
+            </button>
+        </div>
+        
+        <div class="nav-center">
+            <h1><i class="fas fa-file-alt"></i> Resume Preview</h1>
+        </div>
+        
+        <div class="nav-right">
+            <button onclick="changeTemplate()" class="nav-btn template-btn">
+                <i class="fas fa-palette"></i> Change Style
+            </button>
+            <button onclick="downloadPDF()" class="nav-btn download-btn">
+                <i class="fas fa-download"></i> Download PDF
+            </button>
+        </div>
+    </nav>
+
+    <!-- Template & Color Selector Modal -->
+    <div id="styleModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-palette"></i> Customize Resume Style</h2>
+                <button onclick="closeStyleModal()" class="close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <!-- Color Selector -->
+                <div class="style-section">
+                    <h3>Choose Color Theme</h3>
+                    <div class="color-selector">
+                        <div class="color-option" data-color="blue" onclick="selectColor('blue')">
+                            <div class="color-circle" style="background: linear-gradient(135deg, #2196f3, #1976d2);"></div>
+                            <span>Professional Blue</span>
+                        </div>
+                        <div class="color-option" data-color="green" onclick="selectColor('green')">
+                            <div class="color-circle" style="background: linear-gradient(135deg, #4caf50, #388e3c);"></div>
+                            <span>Fresh Green</span>
+                        </div>
+                        <div class="color-option" data-color="purple" onclick="selectColor('purple')">
+                            <div class="color-circle" style="background: linear-gradient(135deg, #9c27b0, #7b1fa2);"></div>
+                            <span>Creative Purple</span>
+                        </div>
+                        <div class="color-option" data-color="teal" onclick="selectColor('teal')">
+                            <div class="color-circle" style="background: linear-gradient(135deg, #009688, #00796b);"></div>
+                            <span>Modern Teal</span>
+                        </div>
+                        <div class="color-option" data-color="orange" onclick="selectColor('orange')">
+                            <div class="color-circle" style="background: linear-gradient(135deg, #ff9800, #f57c00);"></div>
+                            <span>Warm Orange</span>
+                        </div>
+                        <div class="color-option" data-color="red" onclick="selectColor('red')">
+                            <div class="color-circle" style="background: linear-gradient(135deg, #f44336, #d32f2f);"></div>
+                            <span>Bold Red</span>
+                        </div>
+                        <div class="color-option" data-color="indigo" onclick="selectColor('indigo')">
+                            <div class="color-circle" style="background: linear-gradient(135deg, #3f51b5, #303f9f);"></div>
+                            <span>Deep Indigo</span>
+                        </div>
+                        <div class="color-option" data-color="pink" onclick="selectColor('pink')">
+                            <div class="color-circle" style="background: linear-gradient(135deg, #e91e63, #c2185b);"></div>
+                            <span>Vibrant Pink</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Template Selector -->
+                <div class="style-section">
+                    <h3>Choose Template Layout</h3>
+                    <div class="template-selector">
+                        <div class="template-option" data-template="professional" onclick="selectTemplate('professional')">
+                            <div class="template-thumb professional-thumb">
+                                <div class="thumb-header"></div>
+                                <div class="thumb-line"></div>
+                                <div class="thumb-line short"></div>
+                            </div>
+                            <span>Professional</span>
+                        </div>
+                        <div class="template-option" data-template="modern" onclick="selectTemplate('modern')">
+                            <div class="template-thumb modern-thumb">
+                                <div class="thumb-sidebar"></div>
+                                <div class="thumb-content">
+                                    <div class="thumb-line"></div>
+                                    <div class="thumb-line"></div>
+                                </div>
+                            </div>
+                            <span>Modern</span>
+                        </div>
+                        <div class="template-option" data-template="minimal" onclick="selectTemplate('minimal')">
+                            <div class="template-thumb minimal-thumb">
+                                <div class="thumb-line"></div>
+                                <div class="thumb-line"></div>
+                                <div class="thumb-line short"></div>
+                            </div>
+                            <span>Minimal</span>
+                        </div>
+                        <div class="template-option" data-template="creative" onclick="selectTemplate('creative')">
+                            <div class="template-thumb creative-thumb">
+                                <div class="thumb-header accent"></div>
+                                <div class="thumb-line"></div>
+                                <div class="thumb-line short"></div>
+                            </div>
+                            <span>Creative</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button onclick="applyStyle()" class="apply-btn">
+                    <i class="fas fa-check"></i> Apply Changes
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resume Preview Container -->
+    <div class="preview-container">
+        <div class="preview-wrapper">
+            <!-- A4 Page Container -->
+            <div id="resumePage" class="resume-page">
+                <!-- Resume content will be dynamically generated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Action Buttons (Mobile) -->
+    <div class="floating-actions">
+        <button onclick="downloadPDF()" class="fab download-fab" title="Download PDF">
+            <i class="fas fa-download"></i>
+        </button>
+        <button onclick="changeTemplate()" class="fab style-fab" title="Change Style">
+            <i class="fas fa-palette"></i>
+        </button>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Generating PDF...</p>
+        </div>
+    </div>
+
+    <!-- API Configuration -->
+    <script src="/config.js"></script>
+    <!-- Resume Preview Script -->
+    <script src="/resume-preview.js?v=1.0"></script>
+</body>
+</html>

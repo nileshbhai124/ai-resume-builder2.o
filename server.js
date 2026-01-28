@@ -93,6 +93,10 @@ app.get('/home.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'app-unified.html'));
 });
 
+app.get('/resume-preview.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'resume-preview.html'));
+});
+
 // Serve frontend - catch all other routes
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'app-unified.html'));
