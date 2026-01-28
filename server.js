@@ -28,8 +28,6 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(express.static('public'));
-
 // Simple file-based database for development
 const dbPath = path.join(__dirname, 'data');
 if (!fs.existsSync(dbPath)) {
@@ -69,7 +67,7 @@ if (process.env.MONGODB_URI && process.env.USE_FILE_DB !== 'true') {
     console.log('💡 To enable MongoDB, update .env file and set USE_FILE_DB=false');
 }
 
-// Routes
+// API Routes - MUST come before static files
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/resume', require('./routes/resume'));
 
@@ -82,21 +80,34 @@ app.get('/api/test', (req, res) => {
     });
 });
 
+// Static files - comes after API routes
+app.use(express.static('public'));
+
 // Serve specific pages
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'app-unified.html'));
+  res.sendFile(path.join(__dirname, 'public', 'landing.html'));
 });
 
 app.get('/landing.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'landing.html'));
+});
+
+app.get('/app-unified.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'app-unified.html'));
 });
 
 app.get('/dashboard.html', (req, res) => {
+  // Dashboard should show app-unified.html (which handles login/dashboard internally)
   res.sendFile(path.join(__dirname, 'public', 'app-unified.html'));
 });
 
+app.get('/dashboard', (req, res) => {
+  // Redirect /dashboard to /dashboard.html
+  res.redirect('/dashboard.html');
+});
+
 app.get('/home.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'app-unified.html'));
+  res.sendFile(path.join(__dirname, 'public', 'landing.html'));
 });
 
 app.get('/resume-preview.html', (req, res) => {
@@ -105,7 +116,7 @@ app.get('/resume-preview.html', (req, res) => {
 
 // Serve frontend - catch all other routes
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'app-unified.html'));
+  res.sendFile(path.join(__dirname, 'public', 'landing.html'));
 });
 
 // Error handling middleware

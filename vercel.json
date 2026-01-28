@@ -16,7 +16,11 @@
     },
     {
       "src": "/",
-      "dest": "/public/app-unified.html"
+      "dest": "/public/landing.html"
+    },
+    {
+      "src": "/resume-preview.html",
+      "dest": "/public/resume-preview.html"
     },
     {
       "src": "/resume-templates.html",

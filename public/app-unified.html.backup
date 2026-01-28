@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Resume Builder - Professional Resume Creation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/unified-styles.css?v=16.0">
+    <link rel="stylesheet" href="/unified-styles.css?v=14.0">
 </head>
 <body>
     <!-- Landing Section -->
@@ -363,6 +363,450 @@
                 </div>
                     <div class="template-card" data-profession="software">
                         <div class="template-preview">
+                            <div class="preview-header">
+                                <h3>ALEX JOHNSON</h3>
+                                <p>Senior Software Engineer</p>
+                                <div class="preview-contact">
+                                    alex.johnson@email.com • +1 (555) 123-4567 • San Francisco, CA
+                                </div>
+                            </div>
+                            <div class="preview-section">
+                                <h4>PROFESSIONAL SUMMARY</h4>
+                                <p class="preview-text">Full-stack engineer with 6+ years building scalable web applications. Expert in React, Node.js, and cloud architecture.</p>
+                            </div>
+                            <div class="preview-section">
+                                <h4>EXPERIENCE</h4>
+                                <div class="preview-item">
+                                    <div class="preview-item-header">
+                                        <strong>Senior Software Engineer</strong>
+                                        <span class="preview-date">2020 - Present</span>
+                                    </div>
+                                    <p class="preview-company">Tech Innovations Inc. • San Francisco, CA</p>
+                                    <ul class="preview-bullets">
+                                        <li>Led development of microservices architecture serving 2M+ users</li>
+                                        <li>Reduced API response time by 40% through optimization</li>
+                                        <li>Mentored team of 5 junior developers</li>
+                                    </ul>
+                                </div>
+                                <div class="preview-item">
+                                    <div class="preview-item-header">
+                                        <strong>Software Developer</strong>
+                                        <span class="preview-date">2018 - 2020</span>
+                                    </div>
+                                    <p class="preview-company">StartupHub • Remote</p>
+                                    <ul class="preview-bullets">
+                                        <li>Built responsive web apps using React and Redux</li>
+                                        <li>Implemented CI/CD pipelines with Jenkins and Docker</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="preview-section">
+                                <h4>EDUCATION</h4>
+                                <div class="preview-item">
+                                    <div class="preview-item-header">
+                                        <strong>B.S. Computer Science</strong>
+                                        <span class="preview-date">2014 - 2018</span>
+                                    </div>
+                                    <p class="preview-company">Stanford University • GPA: 3.8/4.0</p>
+                                </div>
+                            </div>
+                            <div class="preview-section">
+                                <h4>TECHNICAL SKILLS</h4>
+                                <div class="preview-skills-grid">
+                                    <div><strong>Languages:</strong> JavaScript, TypeScript, Python, Java</div>
+                                    <div><strong>Frontend:</strong> React, Vue.js, Next.js, Redux</div>
+                                    <div><strong>Backend:</strong> Node.js, Express, Django, REST APIs</div>
+                                    <div><strong>Database:</strong> MongoDB, PostgreSQL, Redis</div>
+                                    <div><strong>DevOps:</strong> Docker, Kubernetes, AWS, CI/CD</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="template-info">
+                            <h4>Modern Tech Resume</h4>
+                            <div class="skill-tags">
+                                <span class="tag"><i class="fas fa-code"></i> React</span>
+                                <span class="tag"><i class="fas fa-code"></i> Node.js</span>
+                                <span class="tag"><i class="fas fa-code"></i> TypeScript</span>
+                                <span class="tag"><i class="fas fa-database"></i> MongoDB</span>
+                            </div>
+                            <button class="use-template-btn" onclick="showRegister()">
+                                <i class="fas fa-rocket"></i> Use Template
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Data Scientist Template -->
+                    <div class="template-card" data-profession="data">
+                        <div class="template-preview data-style">
+                            <div class="preview-header">
+                                <h3>SARAH CHEN</h3>
+                                <p>Data Scientist & ML Engineer</p>
+                                <div class="preview-contact">
+                                    sarah.chen@email.com • +1 (555) 987-6543 • New York, NY
+                                </div>
+                            </div>
+                            <div class="preview-section">
+                                <h4>PROFESSIONAL SUMMARY</h4>
+                                <p class="preview-text">Data scientist with 5+ years experience in machine learning, predictive modeling, and big data analytics. Proven track record of delivering data-driven solutions.</p>
+                            </div>
+                            <div class="preview-section">
+                                <h4>EXPERIENCE</h4>
+                                <div class="preview-item">
+                                    <div class="preview-item-header">
+                                        <strong>Senior Data Scientist</strong>
+                                        <span class="preview-date">2021 - Present</span>
+                                    </div>
+                                    <p class="preview-company">DataTech Solutions • New York, NY</p>
+                                    <ul class="preview-bullets">
+                                        <li>Developed ML models improving prediction accuracy by 35%</li>
+                                        <li>Built recommendation system serving 5M+ daily users</li>
+                                        <li>Led data pipeline optimization reducing processing time by 50%</li>
+                                    </ul>
+                                </div>
+                                <div class="preview-item">
+                                    <div class="preview-item-header">
+                                        <strong>Data Analyst</strong>
+                                        <span class="preview-date">2019 - 2021</span>
+                                    </div>
+                                    <p class="preview-company">Analytics Corp • Boston, MA</p>
+                                    <ul class="preview-bullets">
+                                        <li>Analyzed customer behavior data to drive business insights</li>
+                                        <li>Created interactive dashboards using Tableau and Power BI</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="preview-section">
+                                <h4>EDUCATION</h4>
+                                <div class="preview-item">
+                                    <div class="preview-item-header">
+                                        <strong>M.S. Data Science</strong>
+                                        <span class="preview-date">2017 - 2019</span>
+                                    </div>
+                                    <p class="preview-company">MIT • GPA: 3.9/4.0</p>
+                                </div>
+                            </div>
+                            <div class="preview-section">
+                                <h4>TECHNICAL SKILLS</h4>
+                                <div class="preview-skills-grid">
+                                    <div><strong>Languages:</strong> Python, R, SQL, Scala</div>
+                                    <div><strong>ML/AI:</strong> TensorFlow, PyTorch, Scikit-learn, Keras</div>
+                                    <div><strong>Big Data:</strong> Spark, Hadoop, Kafka, Airflow</div>
+                                    <div><strong>Visualization:</strong> Tableau, Power BI, Matplotlib</div>
+                                    <div><strong>Cloud:</strong> AWS SageMaker, Google Cloud AI, Azure ML</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="template-info">
+                            <h4>Data Science Pro</h4>
+                            <div class="skill-tags">
+                                <span class="tag"><i class="fas fa-brain"></i> Machine Learning</span>
+                                <span class="tag"><i class="fas fa-python"></i> Python</span>
+                                <span class="tag"><i class="fas fa-chart-line"></i> Data Analysis</span>
+                                <span class="tag"><i class="fas fa-database"></i> SQL</span>
+                            </div>
+                            <button class="use-template-btn" onclick="showRegister()">
+                                <i class="fas fa-rocket"></i> Use Template
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- UI/UX Designer Template -->
+                    <div class="template-card" data-profession="design">
+                        <div class="template-preview design-style">
+                            <div class="preview-header">
+                                <h3>EMMA WILSON</h3>
+                                <p>Senior UI/UX Designer</p>
+                                <div class="preview-contact">
+                                    emma.wilson@email.com • +1 (555) 456-7890 • Los Angeles, CA
+                                </div>
+                            </div>
+                            <div class="preview-section">
+                                <h4>PROFESSIONAL SUMMARY</h4>
+                                <p class="preview-text">Creative UI/UX designer with 7+ years crafting user-centered digital experiences. Specialized in mobile-first design and design systems.</p>
+                            </div>
+                            <div class="preview-section">
+                                <h4>EXPERIENCE</h4>
+                                <div class="preview-item">
+                                    <div class="preview-item-header">
+                                        <strong>Lead Product Designer</strong>
+                                        <span class="preview-date">2020 - Present</span>
+                                    </div>
+                                    <p class="preview-company">Creative Labs • Los Angeles, CA</p>
+                                    <ul class="preview-bullets">
+                                        <li>Redesigned mobile app increasing user engagement by 60%</li>
+                                        <li>Established design system used across 15+ products</li>
+                                        <li>Led UX research with 500+ user interviews</li>
+                                    </ul>
+                                </div>
+                                <div class="preview-item">
+                                    <div class="preview-item-header">
+                                        <strong>UI/UX Designer</strong>
+                                        <span class="preview-date">2017 - 2020</span>
+                                    </div>
+                                    <p class="preview-company">Design Studio • San Diego, CA</p>
+                                    <ul class="preview-bullets">
+                                        <li>Designed 20+ web and mobile applications</li>
+                                        <li>Conducted A/B testing improving conversion by 45%</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="preview-section">
+                                <h4>EDUCATION</h4>
+                                <div class="preview-item">
+                                    <div class="preview-item-header">
+                                        <strong>B.A. Graphic Design</strong>
+                                        <span class="preview-date">2013 - 2017</span>
+                                    </div>
+                                    <p class="preview-company">Art Center College of Design • GPA: 3.7/4.0</p>
+                                </div>
+                            </div>
+                            <div class="preview-section">
+                                <h4>TECHNICAL SKILLS</h4>
+                                <div class="preview-skills-grid">
+                                    <div><strong>Design Tools:</strong> Figma, Adobe XD, Sketch, InVision</div>
+                                    <div><strong>Prototyping:</strong> Framer, Principle, ProtoPie</div>
+                                    <div><strong>Graphics:</strong> Photoshop, Illustrator, After Effects</div>
+                                    <div><strong>Frontend:</strong> HTML, CSS, JavaScript basics</div>
+                                    <div><strong>Research:</strong> User Testing, Surveys, Analytics</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="template-info">
+                            <h4>Creative Designer</h4>
+                            <div class="skill-tags">
+                                <span class="tag"><i class="fas fa-paint-brush"></i> Figma</span>
+                                <span class="tag"><i class="fas fa-palette"></i> Adobe XD</span>
+                                <span class="tag"><i class="fas fa-mobile-alt"></i> UI Design</span>
+                                <span class="tag"><i class="fas fa-users"></i> UX Research</span>
+                            </div>
+                            <button class="use-template-btn" onclick="showRegister()">
+                                <i class="fas fa-rocket"></i> Use Template
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project Manager Template -->
+                    <div class="template-card" data-profession="manager">
+                        <div class="template-preview manager-style">
+                            <div class="preview-header">
+                                <h3>MICHAEL BROWN</h3>
+                                <p>Senior Project Manager, PMP</p>
+                                <div class="preview-contact">
+                                    michael.brown@email.com • +1 (555) 234-5678 • Chicago, IL
+                                </div>
+                            </div>
+                            <div class="preview-section">
+                                <h4>PROFESSIONAL SUMMARY</h4>
+                                <p class="preview-text">Results-driven project manager with 8+ years leading cross-functional teams. Expert in Agile methodologies and delivering projects on time and under budget.</p>
+                            </div>
+                            <div class="preview-section">
+                                <h4>EXPERIENCE</h4>
+                                <div class="preview-item">
+                                    <div class="preview-item-header">
+                                        <strong>Senior Project Manager</strong>
+                                        <span class="preview-date">2019 - Present</span>
+                                    </div>
+                                    <p class="preview-company">Enterprise Solutions Inc. • Chicago, IL</p>
+                                    <ul class="preview-bullets">
+                                        <li>Managed $5M+ portfolio of 12 concurrent projects</li>
+                                        <li>Led team of 25+ developers, designers, and analysts</li>
+                                        <li>Achieved 98% on-time delivery rate across all projects</li>
+                                    </ul>
+                                </div>
+                                <div class="preview-item">
+                                    <div class="preview-item-header">
+                                        <strong>Project Manager</strong>
+                                        <span class="preview-date">2016 - 2019</span>
+                                    </div>
+                                    <p class="preview-company">Tech Consulting Group • Denver, CO</p>
+                                    <ul class="preview-bullets">
+                                        <li>Delivered 15+ enterprise software implementations</li>
+                                        <li>Reduced project costs by 20% through process optimization</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="preview-section">
+                                <h4>EDUCATION & CERTIFICATIONS</h4>
+                                <div class="preview-item">
+                                    <div class="preview-item-header">
+                                        <strong>MBA, Project Management</strong>
+                                        <span class="preview-date">2014 - 2016</span>
+                                    </div>
+                                    <p class="preview-company">Northwestern University • GPA: 3.8/4.0</p>
+                                </div>
+                                <p class="preview-text"><strong>Certifications:</strong> PMP, CSM, SAFe Agilist, PRINCE2</p>
+                            </div>
+                            <div class="preview-section">
+                                <h4>TECHNICAL SKILLS</h4>
+                                <div class="preview-skills-grid">
+                                    <div><strong>Methodologies:</strong> Agile, Scrum, Kanban, Waterfall</div>
+                                    <div><strong>Tools:</strong> Jira, Asana, MS Project, Confluence</div>
+                                    <div><strong>Leadership:</strong> Team Building, Stakeholder Management</div>
+                                    <div><strong>Analysis:</strong> Risk Management, Budget Planning</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="template-info">
+                            <h4>Executive Manager</h4>
+                            <div class="skill-tags">
+                                <span class="tag"><i class="fas fa-project-diagram"></i> Agile</span>
+                                <span class="tag"><i class="fas fa-users-cog"></i> Scrum</span>
+                                <span class="tag"><i class="fas fa-chart-gantt"></i> Jira</span>
+                                <span class="tag"><i class="fas fa-handshake"></i> Leadership</span>
+                            </div>
+                            <button class="use-template-btn" onclick="showRegister()">
+                                <i class="fas fa-rocket"></i> Use Template
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Student / Fresher Template -->
+                    <div class="template-card" data-profession="student">
+                        <div class="template-preview student-style">
+                            <div class="preview-header">
+                                <h3>DAVID KUMAR</h3>
+                                <p>Computer Science Graduate</p>
+                                <div class="preview-contact">
+                                    david.kumar@email.com • +1 (555) 345-6789 • Austin, TX
+                                </div>
+                            </div>
+                            <div class="preview-section">
+                                <h4>OBJECTIVE</h4>
+                                <p class="preview-text">Recent CS graduate seeking entry-level software engineering role. Strong foundation in algorithms, data structures, and full-stack development.</p>
+                            </div>
+                            <div class="preview-section">
+                                <h4>EDUCATION</h4>
+                                <div class="preview-item">
+                                    <div class="preview-item-header">
+                                        <strong>B.Tech Computer Science</strong>
+                                        <span class="preview-date">2020 - 2024</span>
+                                    </div>
+                                    <p class="preview-company">University of Texas • GPA: 3.6/4.0</p>
+                                    <p class="preview-text"><strong>Relevant Coursework:</strong> Data Structures, Algorithms, Web Development, Database Systems, Machine Learning</p>
+                                </div>
+                            </div>
+                            <div class="preview-section">
+                                <h4>PROJECTS</h4>
+                                <div class="preview-item">
+                                    <strong>E-Commerce Platform</strong>
+                                    <ul class="preview-bullets">
+                                        <li>Built full-stack web app using MERN stack</li>
+                                        <li>Implemented payment gateway and user authentication</li>
+                                    </ul>
+                                </div>
+                                <div class="preview-item">
+                                    <strong>AI Chatbot</strong>
+                                    <ul class="preview-bullets">
+                                        <li>Developed NLP-based chatbot using Python and TensorFlow</li>
+                                        <li>Achieved 85% accuracy in intent classification</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="preview-section">
+                                <h4>TECHNICAL SKILLS</h4>
+                                <div class="preview-skills-grid">
+                                    <div><strong>Languages:</strong> Java, Python, JavaScript, C++</div>
+                                    <div><strong>Web:</strong> React, Node.js, HTML/CSS, Bootstrap</div>
+                                    <div><strong>Database:</strong> MySQL, MongoDB</div>
+                                    <div><strong>Tools:</strong> Git, VS Code, Postman, Docker</div>
+                                </div>
+                            </div>
+                            <div class="preview-section">
+                                <h4>CERTIFICATIONS</h4>
+                                <p class="preview-text">AWS Cloud Practitioner • Google Data Analytics • Meta Frontend Developer</p>
+                            </div>
+                        </div>
+                        <div class="template-info">
+                            <h4>Student Friendly</h4>
+                            <div class="skill-tags">
+                                <span class="tag"><i class="fas fa-graduation-cap"></i> Academic</span>
+                                <span class="tag"><i class="fas fa-project-diagram"></i> Projects</span>
+                                <span class="tag"><i class="fas fa-certificate"></i> Certifications</span>
+                                <span class="tag"><i class="fas fa-trophy"></i> Achievements</span>
+                            </div>
+                            <button class="use-template-btn" onclick="showRegister()">
+                                <i class="fas fa-rocket"></i> Use Template
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Additional Software Template -->
+                    <div class="template-card" data-profession="software">
+                        <div class="template-preview">
+                            <div class="preview-header">
+                                <h3>LISA MARTINEZ</h3>
+                                <p>Full Stack Developer</p>
+                                <div class="preview-contact">
+                                    lisa.martinez@email.com • +1 (555) 789-0123 • Seattle, WA
+                                </div>
+                            </div>
+                            <div class="preview-section">
+                                <h4>PROFESSIONAL SUMMARY</h4>
+                                <p class="preview-text">Versatile full-stack developer with 4+ years building modern web applications. Passionate about clean code and user experience.</p>
+                            </div>
+                            <div class="preview-section">
+                                <h4>EXPERIENCE</h4>
+                                <div class="preview-item">
+                                    <div class="preview-item-header">
+                                        <strong>Full Stack Developer</strong>
+                                        <span class="preview-date">2021 - Present</span>
+                                    </div>
+                                    <p class="preview-company">CloudTech Startup • Seattle, WA</p>
+                                    <ul class="preview-bullets">
+                                        <li>Built SaaS platform from scratch using Vue.js and Python</li>
+                                        <li>Implemented real-time features with WebSockets</li>
+                                        <li>Deployed scalable infrastructure on AWS with 99.9% uptime</li>
+                                    </ul>
+                                </div>
+                                <div class="preview-item">
+                                    <div class="preview-item-header">
+                                        <strong>Junior Developer</strong>
+                                        <span class="preview-date">2019 - 2021</span>
+                                    </div>
+                                    <p class="preview-company">Web Solutions Inc. • Portland, OR</p>
+                                    <ul class="preview-bullets">
+                                        <li>Developed responsive websites for 20+ clients</li>
+                                        <li>Integrated third-party APIs and payment gateways</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="preview-section">
+                                <h4>EDUCATION</h4>
+                                <div class="preview-item">
+                                    <div class="preview-item-header">
+                                        <strong>B.S. Software Engineering</strong>
+                                        <span class="preview-date">2015 - 2019</span>
+                                    </div>
+                                    <p class="preview-company">University of Washington • GPA: 3.7/4.0</p>
+                                </div>
+                            </div>
+                            <div class="preview-section">
+                                <h4>TECHNICAL SKILLS</h4>
+                                <div class="preview-skills-grid">
+                                    <div><strong>Frontend:</strong> Vue.js, React, HTML5, CSS3, Tailwind</div>
+                                    <div><strong>Backend:</strong> Python, Django, Flask, Node.js</div>
+                                    <div><strong>Database:</strong> PostgreSQL, MySQL, MongoDB, Redis</div>
+                                    <div><strong>Cloud:</strong> AWS (EC2, S3, Lambda), Docker, Nginx</div>
+                                    <div><strong>Tools:</strong> Git, GitHub Actions, Jest, Pytest</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="template-info">
+                            <h4>Full Stack Pro</h4>
+                            <div class="skill-tags">
+                                <span class="tag"><i class="fas fa-code"></i> Vue.js</span>
+                                <span class="tag"><i class="fas fa-python"></i> Python</span>
+                                <span class="tag"><i class="fas fa-cloud"></i> AWS</span>
+                                <span class="tag"><i class="fas fa-docker"></i> Docker</span>
+                            </div>
+                            <button class="use-template-btn" onclick="showRegister()">
+                                <i class="fas fa-rocket"></i> Use Template
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-nav next" onclick="moveSlide(1)">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>

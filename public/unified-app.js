@@ -49,11 +49,14 @@ async function handleLogin(event) {
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('login-password').value;
     
+    // Ensure API_BASE_URL is set (fallback if config.js hasn't loaded)
+    const API_URL = window.API_BASE_URL || 'http://localhost:3000';
+    
     console.log('🔐 Attempting login...', { email });
-    console.log('🔗 API URL:', `${window.API_BASE_URL}/api/auth/login`);
+    console.log('🔗 API URL:', `${API_URL}/api/auth/login`);
     
     try {
-        const response = await fetch(`${window.API_BASE_URL}/api/auth/login`, {
+        const response = await fetch(`${API_URL}/api/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -100,8 +103,11 @@ async function handleRegister(event) {
     const email = document.getElementById('register-email').value;
     const password = document.getElementById('register-password').value;
     
+    // Ensure API_BASE_URL is set (fallback if config.js hasn't loaded)
+    const API_URL = window.API_BASE_URL || 'http://localhost:3000';
+    
     try {
-        const response = await fetch(`${window.API_BASE_URL}/api/auth/register`, {
+        const response = await fetch(`${API_URL}/api/auth/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -183,113 +189,148 @@ function downloadResume() {
     window.location.href = '/resume-preview.html';
 }
 
-// Resume Template Carousel
-let currentSlide = 0;
-let autoplayInterval;
-let isAutoplayActive = true;
-const slideInterval = 3000; // 3 seconds
+// Resume Templates Carousel
+let currentSlideIndex = 0;
+let autoPlayInterval;
+let currentFilter = 'all';
+let visibleCards = [];
 
-function initCarousel() {
-    const track = document.getElementById('carouselTrack');
-    const dotsContainer = document.getElementById('carouselDots');
+function initTemplatesCarousel() {
+    updateVisibleCards();
+    createIndicators();
+    startAutoPlay();
     
-    if (!track) return;
-    
-    const cards = track.children;
-    const totalSlides = cards.length;
-    
-    // Create dots
-    for (let i = 0; i < totalSlides; i++) {
-        const dot = document.createElement('div');
-        dot.className = 'dot';
-        if (i === 0) dot.classList.add('active');
-        dot.onclick = () => goToSlide(i);
-        dotsContainer.appendChild(dot);
+    // Pause on hover
+    const carousel = document.getElementById('templatesCarousel');
+    if (carousel) {
+        carousel.addEventListener('mouseenter', pauseAutoPlay);
+        carousel.addEventListener('mouseleave', startAutoPlay);
     }
-    
-    // Start autoplay
-    startAutoplay();
 }
 
-function moveCarousel(direction) {
-    const track = document.getElementById('carouselTrack');
-    const cards = track.children;
-    const totalSlides = cards.length;
+function updateVisibleCards() {
+    const allCards = document.querySelectorAll('.template-card');
+    visibleCards = [];
     
-    // Calculate visible slides based on screen width
-    let visibleSlides = 3;
-    if (window.innerWidth <= 1024) visibleSlides = 2;
-    if (window.innerWidth <= 768) visibleSlides = 1;
+    // Update visibility and collect visible cards
+    allCards.forEach(card => {
+        const profession = card.getAttribute('data-profession');
+        if (currentFilter === 'all' || profession === currentFilter) {
+            card.style.display = 'flex';
+            card.style.flexShrink = '0';
+            visibleCards.push(card);
+        } else {
+            card.style.display = 'none';
+        }
+    });
     
-    const maxSlide = totalSlides - visibleSlides;
+    // Reset to first slide when filter changes
+    currentSlideIndex = 0;
+    updateCarouselPosition();
+    createIndicators();
+}
+
+function filterTemplates(profession) {
+    currentFilter = profession;
     
-    currentSlide += direction;
+    // Update active filter button
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.querySelector(`[data-profession="${profession}"]`).classList.add('active');
     
-    // Loop around
-    if (currentSlide < 0) currentSlide = maxSlide;
-    if (currentSlide > maxSlide) currentSlide = 0;
+    updateVisibleCards();
+    pauseAutoPlay();
+    startAutoPlay();
+}
+
+function moveSlide(direction) {
+    const maxIndex = Math.max(0, visibleCards.length - getVisibleSlidesCount());
+    currentSlideIndex += direction;
     
-    updateCarousel();
+    if (currentSlideIndex < 0) {
+        currentSlideIndex = maxIndex;
+    } else if (currentSlideIndex > maxIndex) {
+        currentSlideIndex = 0;
+    }
+    
+    updateCarouselPosition();
+    updateIndicators();
 }
 
 function goToSlide(index) {
-    currentSlide = index;
-    updateCarousel();
-    resetAutoplay();
+    currentSlideIndex = index;
+    updateCarouselPosition();
+    updateIndicators();
 }
 
-function updateCarousel() {
-    const track = document.getElementById('carouselTrack');
-    const dots = document.querySelectorAll('.dot');
-    const cardWidth = track.children[0].offsetWidth;
+function updateCarouselPosition() {
+    const carousel = document.getElementById('templatesCarousel');
+    if (!carousel || visibleCards.length === 0) return;
+    
+    // Get actual card width dynamically
+    const firstCard = visibleCards[0];
+    if (!firstCard) return;
+    
+    const cardWidth = firstCard.offsetWidth;
     const gap = 30;
+    const offset = -(currentSlideIndex * (cardWidth + gap));
     
-    // Move track
-    const offset = -(currentSlide * (cardWidth + gap));
-    track.style.transform = `translateX(${offset}px)`;
-    
-    // Update dots
-    dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentSlide);
-    });
+    carousel.style.transform = `translateX(${offset}px)`;
+    carousel.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
 }
 
-function startAutoplay() {
-    if (isAutoplayActive) {
-        autoplayInterval = setInterval(() => {
-            moveCarousel(1);
-        }, slideInterval);
+function getVisibleSlidesCount() {
+    const width = window.innerWidth;
+    if (width >= 1400) return 3;
+    if (width >= 1024) return 2;
+    return 1;
+}
+
+function createIndicators() {
+    const indicatorsContainer = document.getElementById('carouselIndicators');
+    if (!indicatorsContainer) return;
+    
+    indicatorsContainer.innerHTML = '';
+    const maxIndex = Math.max(0, visibleCards.length - getVisibleSlidesCount());
+    
+    for (let i = 0; i <= maxIndex; i++) {
+        const indicator = document.createElement('div');
+        indicator.className = 'indicator';
+        if (i === currentSlideIndex) indicator.classList.add('active');
+        indicator.onclick = () => {
+            goToSlide(i);
+            pauseAutoPlay();
+            startAutoPlay();
+        };
+        indicatorsContainer.appendChild(indicator);
     }
 }
 
-function stopAutoplay() {
-    clearInterval(autoplayInterval);
+function updateIndicators() {
+    const indicators = document.querySelectorAll('.indicator');
+    indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentSlideIndex);
+    });
 }
 
-function resetAutoplay() {
-    stopAutoplay();
-    startAutoplay();
+function startAutoPlay() {
+    pauseAutoPlay(); // Clear any existing interval
+    autoPlayInterval = setInterval(() => {
+        moveSlide(1);
+    }, 4000); // Auto-play every 4 seconds
 }
 
-function toggleAutoplay() {
-    isAutoplayActive = !isAutoplayActive;
-    const icon = document.getElementById('playPauseIcon');
-    const text = document.getElementById('playPauseText');
-    
-    if (isAutoplayActive) {
-        icon.className = 'fas fa-pause';
-        text.textContent = 'Pause';
-        startAutoplay();
-    } else {
-        icon.className = 'fas fa-play';
-        text.textContent = 'Play';
-        stopAutoplay();
+function pauseAutoPlay() {
+    if (autoPlayInterval) {
+        clearInterval(autoPlayInterval);
     }
 }
 
 // Handle window resize
 window.addEventListener('resize', () => {
-    updateCarousel();
+    updateCarouselPosition();
+    createIndicators();
 });
 
 function generateResumeHTML(data) {
@@ -413,8 +454,8 @@ document.addEventListener('DOMContentLoaded', () => {
         registerForm.addEventListener('submit', handleRegister);
     }
     
-    // Initialize carousel
-    initCarousel();
+    // Initialize templates carousel
+    initTemplatesCarousel();
     
     // Initialize color selector
     initColorSelector();
