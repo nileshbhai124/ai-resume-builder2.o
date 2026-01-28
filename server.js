@@ -14,6 +14,12 @@ mongoose.set('strictQuery', false);
 app.use(cors());
 app.use(express.json());
 
+// Request logging middleware
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.path}`);
+    next();
+});
+
 // Disable caching for development
 app.use((req, res, next) => {
     res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
@@ -100,6 +106,16 @@ app.get('/resume-preview.html', (req, res) => {
 // Serve frontend - catch all other routes
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'app-unified.html'));
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error('❌ Error:', err.message);
+    console.error('Stack:', err.stack);
+    res.status(500).json({ 
+        message: 'Server error', 
+        error: err.message 
+    });
 });
 
 const PORT = process.env.PORT || 3000;

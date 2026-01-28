@@ -49,6 +49,9 @@ async function handleLogin(event) {
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('login-password').value;
     
+    console.log('🔐 Attempting login...', { email });
+    console.log('🔗 API URL:', `${window.API_BASE_URL}/api/auth/login`);
+    
     try {
         const response = await fetch(`${window.API_BASE_URL}/api/auth/login`, {
             method: 'POST',
@@ -58,7 +61,23 @@ async function handleLogin(event) {
             body: JSON.stringify({ email, password })
         });
         
-        const data = await response.json();
+        console.log('📡 Response status:', response.status);
+        console.log('📡 Response headers:', response.headers);
+        
+        // Get response text first to see what we're receiving
+        const responseText = await response.text();
+        console.log('📄 Response text:', responseText);
+        
+        // Try to parse as JSON
+        let data;
+        try {
+            data = JSON.parse(responseText);
+        } catch (parseError) {
+            console.error('❌ JSON Parse Error:', parseError);
+            console.error('❌ Received text:', responseText.substring(0, 200));
+            alert('Login error: Server returned invalid response. Please check console for details.');
+            return;
+        }
         
         if (response.ok) {
             localStorage.setItem('token', data.token);
@@ -69,6 +88,7 @@ async function handleLogin(event) {
             alert(data.message || 'Login failed');
         }
     } catch (error) {
+        console.error('❌ Login error:', error);
         alert('Login error: ' + error.message);
     }
 }
