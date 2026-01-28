@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1769542332190",
+    "email": "nileshchourasiya28@gmail.com",
+    "password": "$2a$10$w9QIfW/U.PqzCqtahRtSXeXLobss8cPwPOgDkQX8Qa2t.d76B2ti6",
+    "fullName": "Nilesh Chourasiya",
+    "createdAt": "2026-01-27T19:32:12.192Z"
+  },
+  {
+    "id": "1769542748283",
+    "email": "bilnder092@gmail.com",
+    "password": "$2a$10$UssTZb75ZJFfw0cSmQXUbusLgREQCMxtbk81V00k9rQREjoC8mdSW",
+    "fullName": "Peaky Bilnder",
+    "createdAt": "2026-01-27T19:39:08.284Z"
+  },
+  {
+    "id": "1769543363421",
+    "email": "mahadev@gmail.com",
+    "password": "$2a$10$GHFVhfMmyvV9VVKwWlcrVO3m9IKtzZVGT5O1PLEicuUmbd3sFQsdW",
+    "fullName": "Vikram CV",
+    "createdAt": "2026-01-27T19:49:23.422Z"
+  }
+]

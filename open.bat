@@ -1,0 +1,3 @@
+@echo off
+echo Opening AI Resume & Portfolio Builder...
+start index.html

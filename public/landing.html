@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Builder - Create Professional ATS-Optimized Resumes</title>
+    <link rel="stylesheet" href="styles-enhanced.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="navigation.js" defer></script>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-background">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <nav class="landing-nav">
+        <div class="nav-brand">
+            <i class="fas fa-rocket"></i>
+            <span>AI Resume Builder</span>
+        </div>
+        <div class="nav-links">
+            <a href="#features"><i class="fas fa-star"></i> Features</a>
+            <a href="#templates"><i class="fas fa-file-alt"></i> Templates</a>
+            <a href="#how-it-works"><i class="fas fa-question-circle"></i> How It Works</a>
+            <a href="dashboard.html" class="nav-btn">
+                <i class="fas fa-sign-in-alt"></i> Get Started
+            </a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">
+                <i class="fas fa-sparkles"></i> AI-Powered Resume Builder
+            </div>
+            <h1>Build Your Perfect Resume in <span class="gradient-text">Minutes</span></h1>
+            <p>Create ATS-optimized resumes with AI-powered keyword optimization, job matching, and professional templates</p>
+            <div class="hero-buttons">
+                <a href="dashboard.html" class="cta-btn primary">
+                    <i class="fas fa-rocket"></i> Start Building Free
+                </a>
+                <button onclick="scrollToFeatures()" class="cta-btn secondary">
+                    <i class="fas fa-play-circle"></i> See How It Works
+                </button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <i class="fas fa-users"></i>
+                    <span class="stat-number">10,000+</span>
+                    <span class="stat-label">Resumes Created</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-check-circle"></i>
+                    <span class="stat-number">95%</span>
+                    <span class="stat-label">ATS Pass Rate</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-star"></i>
+                    <span class="stat-number">4.9/5</span>
+                    <span class="stat-label">User Rating</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <!-- SVG Illustration -->
+            <svg class="resume-illustration" viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg">
+                <!-- Document -->
+                <rect x="100" y="50" width="300" height="500" rx="10" fill="#ffffff" stroke="#667eea" stroke-width="3"/>
+                
+                <!-- Header -->
+                <rect x="120" y="70" width="260" height="60" rx="5" fill="#667eea" opacity="0.2"/>
+                <circle cx="150" cy="100" r="20" fill="#667eea"/>
+                <rect x="180" y="85" width="150" height="10" rx="5" fill="#667eea"/>
+                <rect x="180" y="105" width="100" height="8" rx="4" fill="#667eea" opacity="0.5"/>
+                
+                <!-- Content Lines -->
+                <rect x="120" y="150" width="260" height="8" rx="4" fill="#e2e8f0"/>
+                <rect x="120" y="170" width="200" height="8" rx="4" fill="#e2e8f0"/>
+                <rect x="120" y="190" width="240" height="8" rx="4" fill="#e2e8f0"/>
+                
+                <rect x="120" y="220" width="260" height="8" rx="4" fill="#e2e8f0"/>
+                <rect x="120" y="240" width="180" height="8" rx="4" fill="#e2e8f0"/>
+                <rect x="120" y="260" width="220" height="8" rx="4" fill="#e2e8f0"/>
+                
+                <rect x="120" y="290" width="260" height="8" rx="4" fill="#e2e8f0"/>
+                <rect x="120" y="310" width="200" height="8" rx="4" fill="#e2e8f0"/>
+                
+                <!-- AI Sparkles -->
+                <circle cx="420" cy="100" r="30" fill="#fbbf24" opacity="0.3">
+                    <animate attributeName="r" values="30;35;30" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                <text x="410" y="110" font-size="30" fill="#fbbf24">✨</text>
+                
+                <!-- Checkmarks -->
+                <circle cx="90" cy="200" r="15" fill="#10b981"/>
+                <text x="82" y="208" font-size="18" fill="white">✓</text>
+                
+                <circle cx="90" cy="270" r="15" fill="#10b981"/>
+                <text x="82" y="278" font-size="18" fill="white">✓</text>
+            </svg>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+        <h2>How It Works</h2>
+        <p class="section-subtitle">Create your professional resume in 3 simple steps</p>
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-icon">
+                    <i class="fas fa-user-edit"></i>
+                </div>
+                <h3>1. Enter Your Details</h3>
+                <p>Fill in your information, skills, experience, and projects</p>
+            </div>
+            <div class="step-arrow">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="step">
+                <div class="step-icon">
+                    <i class="fas fa-magic"></i>
+                </div>
+                <h3>2. AI Optimization</h3>
+                <p>Our AI enhances your content with keywords and suggestions</p>
+            </div>
+            <div class="step-arrow">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="step">
+                <div class="step-icon">
+                    <i class="fas fa-download"></i>
+                </div>
+                <h3>3. Download & Apply</h3>
+                <p>Get your ATS-optimized resume and start applying</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features-section">
+        <h2>Powerful AI Features</h2>
+        <p class="section-subtitle">Everything you need to create the perfect resume</p>
+        <div class="features-grid">
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h3>Job Matching</h3>
+                <p>AI analyzes your resume and matches it with target job requirements</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-key"></i>
+                </div>
+                <h3>Keyword Optimization</h3>
+                <p>Automatically optimize your resume with industry-specific keywords</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>ATS Score</h3>
+                <p>Get real-time ATS compatibility score and improvement suggestions</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3>Multiple Templates</h3>
+                <p>Choose from professional, modern, and minimal resume templates</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-pen-fancy"></i>
+                </div>
+                <h3>Bullet Rewriter</h3>
+                <p>Transform ordinary bullets into impactful achievement statements</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-spell-check"></i>
+                </div>
+                <h3>Grammar Check</h3>
+                <p>Ensure your resume is error-free with AI-powered grammar checking</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="templates" class="templates-section">
+        <h2>Professional Templates</h2>
+        <p class="section-subtitle">Choose the perfect template for your industry</p>
+        <div class="templates-grid">
+            <div class="template-card">
+                <div class="template-preview professional">
+                    <div class="template-header"></div>
+                    <div class="template-line"></div>
+                    <div class="template-line short"></div>
+                    <div class="template-section"></div>
+                </div>
+                <h4><i class="fas fa-briefcase"></i> Professional</h4>
+                <p>Classic and elegant design</p>
+                <span class="template-badge">Most Popular</span>
+            </div>
+            <div class="template-card">
+                <div class="template-preview modern">
+                    <div class="template-header"></div>
+                    <div class="template-line"></div>
+                    <div class="template-line short"></div>
+                    <div class="template-section"></div>
+                </div>
+                <h4><i class="fas fa-rocket"></i> Modern</h4>
+                <p>Contemporary and stylish</p>
+                <span class="template-badge new">New</span>
+            </div>
+            <div class="template-card">
+                <div class="template-preview minimal">
+                    <div class="template-header"></div>
+                    <div class="template-line"></div>
+                    <div class="template-line short"></div>
+                    <div class="template-section"></div>
+                </div>
+                <h4><i class="fas fa-minimize"></i> Minimal</h4>
+                <p>Clean and simple layout</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Build Your Perfect Resume?</h2>
+            <p>Join thousands of job seekers who have successfully landed their dream jobs</p>
+            <a href="dashboard.html" class="cta-btn primary large">
+                <i class="fas fa-rocket"></i> Start Building Now - It's Free!
+            </a>
+            <p class="cta-note"><i class="fas fa-lock"></i> No credit card required • Free forever</p>
+        </div>
+    </section>
+
+    <footer class="landing-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <i class="fas fa-rocket"></i>
+                <span>AI Resume Builder</span>
+            </div>
+            <div class="footer-links">
+                <a href="#"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+                <a href="#"><i class="fas fa-file-contract"></i> Terms of Service</a>
+                <a href="#"><i class="fas fa-envelope"></i> Contact Us</a>
+            </div>
+            <p class="footer-copyright">© 2026 AI Resume Builder. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToFeatures() {
+            document.getElementById('features').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

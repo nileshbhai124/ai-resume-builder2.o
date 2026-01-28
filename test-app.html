@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - AI Resume Builder</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-info { background: #f0f8ff; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        .button { padding: 10px 20px; margin: 10px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="test-info">
+        <h2>🧪 Testing the Unified App</h2>
+        <p>This page helps test the unified app functionality. Click the button below to open the main app.</p>
+        <p><strong>Expected behavior:</strong> Landing page should show first, then you can navigate to dashboard.</p>
+    </div>
+    
+    <button class="button" onclick="window.open('http://localhost:3000', '_blank')">
+        🚀 Open AI Resume Builder
+    </button>
+    
+    <div style="margin-top: 30px;">
+        <h3>✅ What to Test:</h3>
+        <ul>
+            <li>Landing page should appear first (not dashboard)</li>
+            <li>"Get Started" button should switch to dashboard</li>
+            <li>"Back to Home" button should return to landing</li>
+            <li>No page reloads during navigation</li>
+        </ul>
+    </div>
+</body>
+</html>

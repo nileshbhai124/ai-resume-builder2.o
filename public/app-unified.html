@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Builder - Professional Resume Creation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="unified-styles.css?v=3.0">
+</head>
+<body>
+    <!-- Landing Section -->
+    <section id="landing" class="section active">
+        <div class="animated-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+
+        <nav class="landing-nav">
+            <div class="nav-brand">
+                <i class="fas fa-rocket"></i>
+                <span>AI Resume Builder</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features"><i class="fas fa-star"></i> Features</a>
+                <a href="/resume-templates.html"><i class="fas fa-file-alt"></i> Templates</a>
+                <button onclick="showLogin()" class="nav-btn">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+                <button onclick="showRegister()" class="nav-btn register-btn">
+                    <i class="fas fa-user-plus"></i> Register
+                </button>
+            </div>
+        </nav>
+
+        <div class="hero">
+            <div class="hero-content">
+                <div class="badge">
+                    <i class="fas fa-sparkles"></i> 100% Free AI-Powered Resume Builder
+                </div>
+                <h1>Build Your Perfect Resume in <span class="gradient-text">Minutes</span></h1>
+                <p>Create ATS-optimized resumes with AI-powered features - Completely Free!</p>
+                <button onclick="showRegister()" class="cta-btn primary">
+                    <i class="fas fa-rocket"></i> Start Building Free
+                </button>
+                <p class="login-link">Already have an account? <a href="#" onclick="showLogin()">Login here</a></p>
+                
+                <div class="free-guarantee">
+                    <p><i class="fas fa-check-circle"></i> No Credit Card Required</p>
+                    <p><i class="fas fa-check-circle"></i> No Hidden Charges</p>
+                    <p><i class="fas fa-check-circle"></i> Unlimited Downloads</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="features" class="features-section">
+            <h2>Powerful AI Features</h2>
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Job Matching</h3>
+                    <p>AI analyzes your resume against job requirements</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fas fa-key"></i></div>
+                    <h3>Keyword Optimization</h3>
+                    <p>Optimize with industry-specific keywords</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>ATS Score</h3>
+                    <p>Real-time compatibility scoring</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resume Templates Carousel -->
+        <div id="templates" class="templates-section">
+            <h2>Professional Resume Templates</h2>
+            <p class="section-subtitle">Choose from our collection of ATS-friendly templates</p>
+            
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="moveCarousel(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="carousel-wrapper">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- Template 1: Professional -->
+                        <div class="template-card">
+                            <div class="template-preview professional">
+                                <div class="template-header">
+                                    <h3>JOHN DOE</h3>
+                                    <p>Software Engineer</p>
+                                </div>
+                                <div class="template-section">
+                                    <h4>EXPERIENCE</h4>
+                                    <div class="template-line"></div>
+                                    <div class="template-line short"></div>
+                                </div>
+                                <div class="template-section">
+                                    <h4>EDUCATION</h4>
+                                    <div class="template-line"></div>
+                                </div>
+                                <div class="template-section">
+                                    <h4>SKILLS</h4>
+                                    <div class="template-tags">
+                                        <span></span><span></span><span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <h3>Professional</h3>
+                                <p>Clean and modern design perfect for any industry</p>
+                                <span class="template-badge">Most Popular</span>
+                            </div>
+                        </div>
+
+                        <!-- Template 2: Modern -->
+                        <div class="template-card">
+                            <div class="template-preview modern">
+                                <div class="template-sidebar">
+                                    <div class="sidebar-circle"></div>
+                                    <div class="sidebar-line"></div>
+                                    <div class="sidebar-line"></div>
+                                </div>
+                                <div class="template-content">
+                                    <h3>JANE SMITH</h3>
+                                    <div class="template-line"></div>
+                                    <div class="template-line"></div>
+                                    <div class="template-line short"></div>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <h3>Modern</h3>
+                                <p>Two-column layout with sidebar for skills</p>
+                                <span class="template-badge">Creative</span>
+                            </div>
+                        </div>
+
+                        <!-- Template 3: Minimal -->
+                        <div class="template-card">
+                            <div class="template-preview minimal">
+                                <div class="template-header centered">
+                                    <h3>ALEX JOHNSON</h3>
+                                    <div class="header-line"></div>
+                                </div>
+                                <div class="template-section">
+                                    <div class="template-line"></div>
+                                    <div class="template-line"></div>
+                                    <div class="template-line short"></div>
+                                </div>
+                                <div class="template-section">
+                                    <div class="template-line"></div>
+                                    <div class="template-line short"></div>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <h3>Minimal</h3>
+                                <p>Simple and elegant design for maximum readability</p>
+                                <span class="template-badge">ATS Friendly</span>
+                            </div>
+                        </div>
+
+                        <!-- Template 4: Executive -->
+                        <div class="template-card">
+                            <div class="template-preview executive">
+                                <div class="template-header bold">
+                                    <h3>MICHAEL BROWN</h3>
+                                    <p>Senior Manager</p>
+                                </div>
+                                <div class="template-divider"></div>
+                                <div class="template-section">
+                                    <h4>PROFESSIONAL SUMMARY</h4>
+                                    <div class="template-line"></div>
+                                    <div class="template-line"></div>
+                                </div>
+                                <div class="template-section">
+                                    <h4>ACHIEVEMENTS</h4>
+                                    <div class="template-line short"></div>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <h3>Executive</h3>
+                                <p>Professional design for senior positions</p>
+                                <span class="template-badge">Premium</span>
+                            </div>
+                        </div>
+
+                        <!-- Template 5: Creative -->
+                        <div class="template-card">
+                            <div class="template-preview creative">
+                                <div class="creative-header">
+                                    <div class="header-accent"></div>
+                                    <h3>SARAH DAVIS</h3>
+                                </div>
+                                <div class="template-section">
+                                    <div class="section-icon"></div>
+                                    <div class="template-line"></div>
+                                    <div class="template-line short"></div>
+                                </div>
+                                <div class="template-section">
+                                    <div class="section-icon"></div>
+                                    <div class="template-line"></div>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <h3>Creative</h3>
+                                <p>Stand out with unique design elements</p>
+                                <span class="template-badge">Trending</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-btn next" onclick="moveCarousel(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <div class="carousel-dots" id="carouselDots"></div>
+            
+            <div class="carousel-controls">
+                <button class="control-btn" onclick="toggleAutoplay()">
+                    <i class="fas fa-pause" id="playPauseIcon"></i>
+                    <span id="playPauseText">Pause</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Resume Templates Carousel -->
+        <div id="templates" class="templates-section">
+            <h2>Professional Resume Templates</h2>
+            <p class="templates-subtitle">Choose from our collection of ATS-friendly, professionally designed templates</p>
+            
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div class="carousel-track" id="carousel-track">
+                        <!-- Template 1: Professional -->
+                        <div class="template-card">
+                            <div class="template-preview">
+                                <div class="template-header">
+                                    <h3>JOHN SMITH</h3>
+                                    <p>Software Developer</p>
+                                    <div class="contact-info">
+                                        <span>📧 john@email.com</span>
+                                        <span>📱 +1 234 567 8900</span>
+                                    </div>
+                                </div>
+                                <div class="template-section">
+                                    <h4>EXPERIENCE</h4>
+                                    <div class="experience-item">
+                                        <strong>Senior Developer</strong>
+                                        <p>Tech Company • 2020-Present</p>
+                                        <ul>
+                                            <li>Led development of web applications</li>
+                                            <li>Improved system performance by 40%</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="template-section">
+                                    <h4>SKILLS</h4>
+                                    <div class="skills-tags">
+                                        <span>JavaScript</span>
+                                        <span>React</span>
+                                        <span>Node.js</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <h3>Professional</h3>
+                                <p>Clean, modern design perfect for tech roles</p>
+                                <div class="template-tags">
+                                    <span class="tag">ATS-Friendly</span>
+                                    <span class="tag">Modern</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Template 2: Creative -->
+                        <div class="template-card">
+                            <div class="template-preview creative">
+                                <div class="template-header">
+                                    <h3>SARAH JOHNSON</h3>
+                                    <p>UX/UI Designer</p>
+                                    <div class="contact-info">
+                                        <span>📧 sarah@email.com</span>
+                                        <span>🌐 portfolio.com</span>
+                                    </div>
+                                </div>
+                                <div class="template-section">
+                                    <h4>EXPERIENCE</h4>
+                                    <div class="experience-item">
+                                        <strong>Lead Designer</strong>
+                                        <p>Design Studio • 2019-Present</p>
+                                        <ul>
+                                            <li>Designed user interfaces for 50+ apps</li>
+                                            <li>Increased user engagement by 60%</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="template-section">
+                                    <h4>SKILLS</h4>
+                                    <div class="skills-tags">
+                                        <span>Figma</span>
+                                        <span>Adobe XD</span>
+                                        <span>Prototyping</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <h3>Creative</h3>
+                                <p>Stylish design for creative professionals</p>
+                                <div class="template-tags">
+                                    <span class="tag">Creative</span>
+                                    <span class="tag">Colorful</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Template 3: Minimal -->
+                        <div class="template-card">
+                            <div class="template-preview minimal">
+                                <div class="template-header">
+                                    <h3>MICHAEL BROWN</h3>
+                                    <p>Data Scientist</p>
+                                    <div class="contact-info">
+                                        <span>📧 michael@email.com</span>
+                                        <span>💼 linkedin.com/in/michael</span>
+                                    </div>
+                                </div>
+                                <div class="template-section">
+                                    <h4>EXPERIENCE</h4>
+                                    <div class="experience-item">
+                                        <strong>Data Scientist</strong>
+                                        <p>Analytics Corp • 2021-Present</p>
+                                        <ul>
+                                            <li>Built ML models for predictive analytics</li>
+                                            <li>Reduced processing time by 50%</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="template-section">
+                                    <h4>SKILLS</h4>
+                                    <div class="skills-tags">
+                                        <span>Python</span>
+                                        <span>TensorFlow</span>
+                                        <span>SQL</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <h3>Minimal</h3>
+                                <p>Clean, simple design for any industry</p>
+                                <div class="template-tags">
+                                    <span class="tag">Simple</span>
+                                    <span class="tag">Elegant</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Template 4: Executive -->
+                        <div class="template-card">
+                            <div class="template-preview executive">
+                                <div class="template-header">
+                                    <h3>DAVID WILSON</h3>
+                                    <p>Project Manager</p>
+                                    <div class="contact-info">
+                                        <span>📧 david@email.com</span>
+                                        <span>📱 +1 234 567 8900</span>
+                                    </div>
+                                </div>
+                                <div class="template-section">
+                                    <h4>EXPERIENCE</h4>
+                                    <div class="experience-item">
+                                        <strong>Senior Project Manager</strong>
+                                        <p>Enterprise Solutions • 2018-Present</p>
+                                        <ul>
+                                            <li>Managed $2M+ projects successfully</li>
+                                            <li>Led cross-functional teams of 15+</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="template-section">
+                                    <h4>SKILLS</h4>
+                                    <div class="skills-tags">
+                                        <span>Agile</span>
+                                        <span>Scrum</span>
+                                        <span>Leadership</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <h3>Executive</h3>
+                                <p>Professional design for senior roles</p>
+                                <div class="template-tags">
+                                    <span class="tag">Professional</span>
+                                    <span class="tag">Executive</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Template 5: Student -->
+                        <div class="template-card">
+                            <div class="template-preview student">
+                                <div class="template-header">
+                                    <h3>EMILY DAVIS</h3>
+                                    <p>Computer Science Student</p>
+                                    <div class="contact-info">
+                                        <span>📧 emily@email.com</span>
+                                        <span>🎓 University Student</span>
+                                    </div>
+                                </div>
+                                <div class="template-section">
+                                    <h4>EDUCATION</h4>
+                                    <div class="experience-item">
+                                        <strong>B.S. Computer Science</strong>
+                                        <p>State University • 2022-2026</p>
+                                        <ul>
+                                            <li>GPA: 3.8/4.0</li>
+                                            <li>Dean's List for 3 semesters</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="template-section">
+                                    <h4>PROJECTS</h4>
+                                    <div class="skills-tags">
+                                        <span>Web App</span>
+                                        <span>Mobile App</span>
+                                        <span>AI Project</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <h3>Student</h3>
+                                <p>Perfect for students and fresh graduates</p>
+                                <div class="template-tags">
+                                    <span class="tag">Student-Friendly</span>
+                                    <span class="tag">Fresh</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Controls -->
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev-btn" onclick="previousSlide()">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn next-btn" onclick="nextSlide()">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Dots Indicator -->
+                <div class="carousel-dots" id="carousel-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                </div>
+
+                <!-- Auto-play Controls -->
+                <div class="carousel-play-controls">
+                    <button class="play-btn" onclick="toggleAutoPlay()" id="play-btn">
+                        <i class="fas fa-pause"></i> Auto-play
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Section -->
+    <section id="login" class="section auth-section">
+        <div class="auth-background"></div>
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <h2>Welcome Back</h2>
+                    <p>Sign in to your account</p>
+                </div>
+                <form id="login-form" class="auth-form">
+                    <div class="form-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="login-email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="login-password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="auth-btn">
+                        <i class="fas fa-sign-in-alt"></i> Sign In
+                    </button>
+                </form>
+                <div class="auth-footer">
+                    <p>Don't have an account? <a href="#" onclick="showRegister()">Register here</a></p>
+                    <p><a href="#" onclick="showLanding()">← Back to Home</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Register Section -->
+    <section id="register" class="section auth-section">
+        <div class="auth-background"></div>
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <i class="fas fa-user-plus"></i>
+                    <h2>Create Account</h2>
+                    <p>Join thousands of professionals</p>
+                </div>
+                <form id="register-form" class="auth-form">
+                    <div class="form-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="register-name" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="register-email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="register-password" placeholder="Password (min 6 characters)" required minlength="6">
+                    </div>
+                    <button type="submit" class="auth-btn">
+                        <i class="fas fa-user-plus"></i> Create Account
+                    </button>
+                </form>
+                <div class="auth-footer">
+                    <p>Already have an account? <a href="#" onclick="showLogin()">Login here</a></p>
+                    <p><a href="#" onclick="showLanding()">← Back to Home</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="section">
+        <div class="dashboard-background"></div>
+        
+        <nav class="dashboard-nav">
+            <h2><i class="fas fa-robot"></i> AI Resume Builder</h2>
+            <div class="nav-actions">
+                <span id="ats-score-display" class="ats-score">ATS Score: --/100</span>
+                <button onclick="logout()" class="logout-btn">
+                    <i class="fas fa-arrow-left"></i> Logout
+                </button>
+            </div>
+        </nav>
+
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <h1><i class="fas fa-magic"></i> Build Your Professional Resume</h1>
+                <div class="ai-features-bar">
+                    <button class="feature-btn"><i class="fas fa-bullseye"></i> Job Match</button>
+                    <button class="feature-btn"><i class="fas fa-key"></i> AI Optimize</button>
+                    <button class="feature-btn"><i class="fas fa-chart-line"></i> ATS Score</button>
+                    <button class="feature-btn"><i class="fas fa-sparkles"></i> Enhance</button>
+                </div>
+            </div>
+
+            <form id="resume-form">
+                <div class="form-section">
+                    <h3><i class="fas fa-user"></i> Personal Information</h3>
+                    <input type="text" id="fullName" placeholder="Full Name" required>
+                    <input type="email" id="email" placeholder="Email Address" required>
+                    <input type="tel" id="phone" placeholder="Phone Number" required>
+                    <input type="text" id="location" placeholder="Location (City, State)">
+                    <input type="url" id="linkedin" placeholder="LinkedIn Profile (Optional)">
+                    <input type="url" id="github" placeholder="GitHub Profile (Optional)">
+                </div>
+
+                <div class="form-section">
+                    <h3><i class="fas fa-bullseye"></i> Career Objective</h3>
+                    <textarea id="objective" rows="3" placeholder="Write your career objective or professional summary..."></textarea>
+                </div>
+
+                <div class="form-section">
+                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                    <input type="text" id="degree" placeholder="Degree (e.g., B.Tech Computer Science)" required>
+                    <input type="text" id="institution" placeholder="Institution Name" required>
+                    <input type="number" id="graduationYear" placeholder="Graduation Year" required>
+                    <input type="text" id="gpa" placeholder="GPA/Percentage (Optional)">
+                </div>
+
+                <div class="form-section">
+                    <h3><i class="fas fa-code"></i> Skills</h3>
+                    <input type="text" id="technicalSkills" placeholder="Technical Skills (e.g., Python, JavaScript, React)" required>
+                    <input type="text" id="softSkills" placeholder="Soft Skills (e.g., Communication, Leadership)">
+                    <input type="text" id="tools" placeholder="Tools & Technologies (e.g., Git, VS Code, MySQL)">
+                </div>
+
+                <div class="form-section">
+                    <h3><i class="fas fa-project-diagram"></i> Projects</h3>
+                    <textarea id="projects" rows="6" placeholder="Project 1: Project Name
+Description: Brief description of the project
+Technologies: Technologies used
+Link: GitHub/Live link (if any)
+
+Project 2: Project Name
+Description: Brief description
+Technologies: Technologies used"></textarea>
+                </div>
+
+                <div class="form-section">
+                    <h3><i class="fas fa-briefcase"></i> Experience (Optional)</h3>
+                    <textarea id="experience" rows="4" placeholder="Company Name - Position
+Duration: Start Date - End Date
+• Responsibility 1
+• Responsibility 2
+
+If fresher, write: Fresher - No professional experience"></textarea>
+                </div>
+
+                <div class="form-section">
+                    <h3><i class="fas fa-certificate"></i> Certifications & Achievements</h3>
+                    <textarea id="certifications" rows="3" placeholder="• Certification Name - Issuing Organization
+• Achievement or Award
+• Competition participation"></textarea>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit"><i class="fas fa-save"></i> Save Resume Data</button>
+                    <button type="button" onclick="generateResume()" class="generate-btn"><i class="fas fa-file-alt"></i> Generate Resume</button>
+                    <button type="button" onclick="downloadResume()" class="download-btn"><i class="fas fa-download"></i> Download PDF</button>
+                </div>
+
+                <div class="free-features">
+                    <h4><i class="fas fa-gift"></i> 100% Free Features:</h4>
+                    <div class="feature-list">
+                        <span class="feature-tag">✅ Unlimited Resumes</span>
+                        <span class="feature-tag">✅ PDF Download</span>
+                        <span class="feature-tag">✅ ATS Optimization</span>
+                        <span class="feature-tag">✅ Multiple Templates</span>
+                        <span class="feature-tag">✅ AI Suggestions</span>
+                        <span class="feature-tag">✅ No Watermark</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script src="unified-app.js?v=3.0"></script>
+</body>
+</html>
