@@ -263,6 +263,20 @@ window.addEventListener('resize', () => {
 });
 
 function generateResumeHTML(data) {
+    // Get color theme
+    const colorThemes = {
+        blue: { primary: '#2196f3', light: '#e3f2fd' },
+        green: { primary: '#4caf50', light: '#e8f5e9' },
+        purple: { primary: '#9c27b0', light: '#f3e5f5' },
+        teal: { primary: '#009688', light: '#e0f2f1' },
+        orange: { primary: '#ff9800', light: '#fff3e0' },
+        red: { primary: '#f44336', light: '#ffebee' },
+        indigo: { primary: '#3f51b5', light: '#e8eaf6' },
+        pink: { primary: '#e91e63', light: '#fce4ec' }
+    };
+    
+    const theme = colorThemes[selectedResumeColor] || colorThemes.blue;
+    
     return `
 <!DOCTYPE html>
 <html>
@@ -372,5 +386,119 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize carousel
     initCarousel();
     
+    // Initialize color selector
+    initColorSelector();
+    
     console.log('App initialized - Landing page should be visible');
 });
+
+// Color Selector for Resume
+let selectedResumeColor = 'blue';
+
+function initColorSelector() {
+    const colorOptions = document.querySelectorAll('.color-option');
+    
+    colorOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            // Remove active class from all
+            colorOptions.forEach(opt => opt.classList.remove('active'));
+            
+            // Add active class to clicked
+            this.classList.add('active');
+            
+            // Get selected color
+            selectedResumeColor = this.getAttribute('data-color');
+            
+            // Store in localStorage
+            localStorage.setItem('resumeColor', selectedResumeColor);
+            
+            // Show notification
+            showColorNotification(selectedResumeColor);
+        });
+    });
+    
+    // Load saved color
+    const savedColor = localStorage.getItem('resumeColor');
+    if (savedColor) {
+        selectedResumeColor = savedColor;
+        const savedOption = document.querySelector(`[data-color="${savedColor}"]`);
+        if (savedOption) {
+            colorOptions.forEach(opt => opt.classList.remove('active'));
+            savedOption.classList.add('active');
+        }
+    }
+}
+
+function showColorNotification(color) {
+    const colorNames = {
+        blue: 'Professional Blue',
+        green: 'Fresh Green',
+        purple: 'Creative Purple',
+        teal: 'Modern Teal',
+        orange: 'Warm Orange',
+        red: 'Bold Red',
+        indigo: 'Deep Indigo',
+        pink: 'Vibrant Pink'
+    };
+    
+    // Create notification
+    const notification = document.createElement('div');
+    notification.className = 'color-notification';
+    notification.innerHTML = `
+        <i class="fas fa-check-circle"></i>
+        <span>Resume color changed to ${colorNames[color]}</span>
+    `;
+    
+    // Add styles
+    const style = document.createElement('style');
+    style.textContent = `
+        .color-notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 10000;
+            animation: slideInRight 0.3s ease;
+        }
+        
+        .color-notification i {
+            color: #4caf50;
+            font-size: 1.2rem;
+        }
+        
+        .color-notification span {
+            color: #2d3748;
+            font-weight: 600;
+        }
+        
+        @keyframes slideInRight {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    `;
+    
+    if (!document.querySelector('style[data-color-notification]')) {
+        style.setAttribute('data-color-notification', 'true');
+        document.head.appendChild(style);
+    }
+    
+    document.body.appendChild(notification);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.style.animation = 'slideInRight 0.3s ease reverse';
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}

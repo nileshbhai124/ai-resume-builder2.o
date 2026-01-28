@@ -1,40 +1,14 @@
-# Node modules
-node_modules/
-
-# Server files (not needed for static deployment)
-server.js
-routes/
-middleware/
-models/
-utils/
-
-# Environment files
+node_modules
 .env
-.env.local
-
-# Test files
+.git
+*.log
+data/
+routes/
+models/
+middleware/
+server.js
 test-mongodb.js
-setup-mongodb.js
-
-# Documentation (optional - remove if you want docs on Vercel)
+verify-deployment.js
+quick-verify.js
 *.md
 !README.md
-
-# Data files
-data/
-
-# Git files
-.git/
-.gitignore
-
-# IDE files
-.vscode/
-.idea/
-
-# Logs
-*.log
-npm-debug.log*
-
-# OS files
-.DS_Store
-Thumbs.db

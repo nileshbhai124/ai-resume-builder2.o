@@ -3,21 +3,56 @@
   "public": true,
   "cleanUrls": true,
   "trailingSlash": false,
-  "rewrites": [
+  "builds": [
     {
-      "source": "/",
-      "destination": "/index.html"
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
     },
     {
-      "source": "/resume-templates",
-      "destination": "/resume-templates.html"
+      "src": "/",
+      "dest": "/public/app-unified.html"
     },
     {
-      "source": "/test-blur",
-      "destination": "/test-blur.html"
+      "src": "/resume-templates.html",
+      "dest": "/public/resume-templates.html"
+    },
+    {
+      "src": "/test-blur.html",
+      "dest": "/public/test-blur.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/public/$1"
     }
   ],
   "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Credentials",
+          "value": "true"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
+        }
+      ]
+    },
     {
       "source": "/(.*)",
       "headers": [
@@ -36,5 +71,9 @@
         }
       ]
     }
-  ]
+  ],
+  "env": {
+    "JWT_SECRET": "@jwt-secret",
+    "NODE_ENV": "production"
+  }
 }
